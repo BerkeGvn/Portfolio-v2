@@ -1,57 +1,212 @@
-/* Import the variable Noto Sans JP font from the fontsource package */
+/* Global design tokens and Tailwind base */
 @import '@fontsource-variable/noto-sans-jp';
-@import 'tailwindcss/preflight';
+@import 'tailwindcss';
 
-/* Tailwind layers */
-@tailwind utilities;
-@tailwind utilities;
+@theme {
+  --color-background: #f1f1f2;
+  --color-foreground: #0a0c14;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0c14;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0a0c14;
+  --color-primary: #b8e954;
+  --color-primary-foreground: #24310b;
+  --color-secondary: #eef1f8;
+  --color-secondary-foreground: #101320;
+  --color-muted: #eef1f8;
+  --color-muted-foreground: #566074;
+  --color-accent: #e9f6c4;
+  --color-accent-foreground: #24310b;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #d8dde7;
+  --color-input: #d8dde7;
+  --color-ring: #b8e954;
+  --radius: 0.625rem;
 
-/* Base: set the site's default font-family to Noto Sans JP */
+  @media (prefers-color-scheme: dark) {
+    --color-background: #090a12;
+    --color-foreground: #f5f6f8;
+    --color-card: #171a24;
+    --color-card-foreground: #f5f6f8;
+    --color-popover: #171a24;
+    --color-popover-foreground: #f5f6f8;
+    --color-primary: #a9dc48;
+    --color-primary-foreground: #101c05;
+    --color-secondary: #222736;
+    --color-secondary-foreground: #d7dae5;
+    --color-muted: #222736;
+    --color-muted-foreground: #a4abc0;
+    --color-accent: rgba(184, 233, 84, 0.12);
+    --color-accent-foreground: #f5f6f8;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-border: rgba(193, 199, 216, 0.18);
+    --color-input: rgba(193, 199, 216, 0.18);
+    --color-ring: #a9dc48;
+  }
+}
+
+:root {
+  --background: #f1f1f2;
+  --foreground: #0a0c14;
+  --card: #ffffff;
+  --card-foreground: #0a0c14;
+  --popover: #ffffff;
+  --popover-foreground: #0a0c14;
+  --primary: #b8e954;
+  --primary-foreground: #24310b;
+  --secondary: #eef1f8;
+  --secondary-foreground: #101320;
+  --muted: #eef1f8;
+  --muted-foreground: #566074;
+  --accent: #e9f6c4;
+  --accent-foreground: #24310b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #d8dde7;
+  --input: #d8dde7;
+  --ring: #b8e954;
+  --radius: 0.625rem;
+
+  --brand-primary: #b8e954;
+  --brand-primary-strong: #92c83f;
+  --brand-primary-soft: #e9f6c4;
+  --brand-primary-hover: #c6f26d;
+  --brand-primary-outline: #d0e791;
+  --brand-primary-dark: #24310b;
+
+  --surface-page: #f1f1f2;
+  --surface-base: #ffffff;
+  --surface-elevated: #f8f9fb;
+  --surface-muted: #e9ecf3;
+  --surface-outline: #d8dde7;
+
+  --ink-strong: #07090f;
+  --ink-body: #101320;
+  --ink-muted: #566074;
+  --ink-subtle: #7a7f8f;
+
+  --shadow-elevated: 0 40px 120px rgba(10, 14, 30, 0.28);
+  --shadow-floating: 0 18px 45px rgba(14, 18, 40, 0.12);
+  --shadow-accent: 0 18px 36px rgba(184, 233, 84, 0.35);
+  --shadow-accent-strong: 0 24px 60px rgba(184, 233, 84, 0.35);
+
+  --font-sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Segoe UI', system-ui,
+    -apple-system, sans-serif;
+  --font-heading: 'Noto Sans JP', 'IBM Plex Sans JP', 'Hiragino Kaku Gothic ProN', 'Segoe UI',
+    system-ui, -apple-system, sans-serif;
+}
+
+.dark {
+  --background: #090a12;
+  --foreground: #f5f6f8;
+  --card: #171a24;
+  --card-foreground: #f5f6f8;
+  --popover: #171a24;
+  --popover-foreground: #f5f6f8;
+  --primary: #a9dc48;
+  --primary-foreground: #101c05;
+  --secondary: #222736;
+  --secondary-foreground: #d7dae5;
+  --muted: #222736;
+  --muted-foreground: #a4abc0;
+  --accent: rgba(184, 233, 84, 0.12);
+  --accent-foreground: #f5f6f8;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(193, 199, 216, 0.18);
+  --input: rgba(193, 199, 216, 0.18);
+  --ring: #a9dc48;
+
+  --brand-primary: #a9dc48;
+  --brand-primary-strong: #8bbc32;
+  --brand-primary-soft: rgba(184, 233, 84, 0.12);
+  --brand-primary-hover: #bef059;
+  --brand-primary-outline: rgba(169, 220, 72, 0.42);
+  --brand-primary-dark: #101c05;
+
+  --surface-page: #090a12;
+  --surface-base: #171a24;
+  --surface-elevated: #1f2330;
+  --surface-muted: #222736;
+  --surface-outline: rgba(193, 199, 216, 0.18);
+
+  --ink-strong: #f5f6f8;
+  --ink-body: #d7dae5;
+  --ink-muted: #a4abc0;
+  --ink-subtle: #7a8297;
+
+  --shadow-elevated: 0 45px 140px rgba(0, 0, 0, 0.55);
+  --shadow-floating: 0 22px 60px rgba(5, 8, 18, 0.4);
+  --shadow-accent: 0 18px 36px rgba(169, 220, 72, 0.28);
+  --shadow-accent-strong: 0 28px 72px rgba(169, 220, 72, 0.28);
+}
+
 @layer base {
-  :root {
-    --ui-font: 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+  * {
+    border-color: var(--border);
   }
 
   html,
   body {
     margin: 0;
-    width: 100%;
-    height: 100%;
+    min-height: 100%;
+    font-family: var(--font-sans);
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: var(--ui-font);
-    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    background-color: var(--background);
+    color: var(--foreground);
   }
-}
 
-/* Utility classes for precise variable font control (wght axis). */
-@layer utilities {
-  .variable-wght-100 {
-    font-variation-settings: 'wght' 100;
+  body {
+    background-color: var(--surface-page);
+    color: var(--ink-body);
   }
-  .variable-wght-200 {
-    font-variation-settings: 'wght' 200;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--ink-strong);
+    letter-spacing: -0.01em;
   }
-  .variable-wght-300 {
-    font-variation-settings: 'wght' 300;
+
+  p,
+  li {
+    color: var(--ink-body);
+    font-size: clamp(0.95rem, 0.44vw + 0.82rem, 1.05rem);
   }
-  .variable-wght-400 {
-    font-variation-settings: 'wght' 400;
+
+  strong {
+    color: var(--ink-strong);
   }
-  .variable-wght-500 {
-    font-variation-settings: 'wght' 500;
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
-  .variable-wght-600 {
-    font-variation-settings: 'wght' 600;
+
+  a:hover {
+    opacity: 0.86;
   }
-  .variable-wght-700 {
-    font-variation-settings: 'wght' 700;
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
-  .variable-wght-800 {
-    font-variation-settings: 'wght' 800;
-  }
-  .variable-wght-900 {
-    font-variation-settings: 'wght' 900;
+
+  ::selection {
+    background-color: rgba(184, 233, 84, 0.35);
+    color: var(--brand-primary-dark);
   }
 }
