@@ -2,6 +2,8 @@
 @import '@fontsource-variable/noto-sans-jp';
 @import 'tailwindcss';
 
+@variant dark (&:is(.dark *));
+
 @theme {
   --color-background: #f1f1f2;
   --color-foreground: #0a0c14;
@@ -23,28 +25,6 @@
   --color-input: #d8dde7;
   --color-ring: #b8e954;
   --radius: 0.625rem;
-
-  @media (prefers-color-scheme: dark) {
-    --color-background: #090a12;
-    --color-foreground: #f5f6f8;
-    --color-card: #171a24;
-    --color-card-foreground: #f5f6f8;
-    --color-popover: #171a24;
-    --color-popover-foreground: #f5f6f8;
-    --color-primary: #a9dc48;
-    --color-primary-foreground: #101c05;
-    --color-secondary: #222736;
-    --color-secondary-foreground: #d7dae5;
-    --color-muted: #222736;
-    --color-muted-foreground: #a4abc0;
-    --color-accent: rgba(184, 233, 84, 0.12);
-    --color-accent-foreground: #f5f6f8;
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: #ffffff;
-    --color-border: rgba(193, 199, 216, 0.18);
-    --color-input: rgba(193, 199, 216, 0.18);
-    --color-ring: #a9dc48;
-  }
 }
 
 :root {
