@@ -4,12 +4,25 @@ import { MonitorSmartphone, LineChart, Sparkles, Workflow } from "@lucide/astro"
 import showcaseImg from "../assets/showcase.png"
 ---
 
-<section class="showcase-wrapper flex justify-center px-4 py-16 sm:px-8 lg:py-24" id="showcase">
+<section class="showcase-wrapper flex justify-center px-4 py-8 sm:px-8 " id="showcase">
   <div class="showcase-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)">
     <div class="showcase-pattern" aria-hidden="true"></div>
     <div class="showcase-highlight" aria-hidden="true"></div>
 
     <div class="grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-14 xl:p-16">
+      <div class="showcase-media">
+        <div class="showcase-media-frame">
+          <img src={showcaseImg.src} alt="Dashboard showcase preview" class="showcase-image" loading="lazy" decoding="async" />
+                    <div class="mt-4 flex justify-center">
+            <a
+              href="/showcases"
+              class="inline-flex items-center justify-center rounded-full bg-(--brand-primary) px-24 py-2.5 text-sm font-semibold text-(--brand-primary-dark) shadow-(--shadow-accent) transition duration-300 hover:-translate-y-0.5 hover:bg-(--brand-primary-hover) focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-(--brand-primary-strong)"
+              >実績を見る</a
+            >
+          </div>
+        </div>
+      </div>
+
       <div class="space-y-6 lg:space-y-7">
         <span class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)">
           <span class="inline-block h-2 w-2 rounded-full bg-(--brand-primary)"></span>
@@ -69,21 +82,6 @@ import showcaseImg from "../assets/showcase.png"
           </li>
         </ul>
 
-        <div class="flex flex-wrap items-center gap-4 pt-4">
-          <Button client:load asChild>
-            <a href="#contact" class="px-5 py-2.5">プロジェクトを相談する</a>
-          </Button>
-          <a href="#work" class="inline-flex items-center text-sm font-semibold text-(--brand-primary-dark) underline-offset-4 transition hover:underline">
-            ケーススタディを見る
-          </a>
-        </div>
-      </div>
-
-      <div class="showcase-media">
-        <div class="showcase-media-frame">
-          <div class="showcase-media-blob" aria-hidden="true"></div>
-          <img src={showcaseImg.src} alt="Dashboard showcase preview" class="showcase-image" loading="lazy" decoding="async" />
-        </div>
       </div>
     </div>
   </div>
@@ -194,30 +192,29 @@ import showcaseImg from "../assets/showcase.png"
   }
 
   .showcase-media-frame {
+    /* removed glassmorphism wrapper so the image and SVG sit centered together */
     position: relative;
-    width: min(100%, 480px);
-    padding: 1.6rem;
-    border-radius: 28px;
-    border: 1px solid color-mix(in srgb, var(--surface-outline) 70%, transparent);
-    background: color-mix(in srgb, var(--surface-base) 98%, transparent);
-    box-shadow: 0 30px 90px rgba(8, 12, 24, 0.12);
+    width: min(100%, 640px);
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .showcase-media-blob {
-    position: absolute;
-    inset: 12% 10% 18% 8%;
-    border-radius: 48% 52% 45% 55%;
-    background: radial-gradient(circle at 30% 30%, rgba(184, 233, 84, 0.55), rgba(184, 233, 84, 0.05) 70%);
-    filter: blur(0px);
-    z-index: 0;
-  }
+
 
   .showcase-image {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
-    border-radius: 22px;
-    box-shadow: 0 25px 60px rgba(12, 16, 28, 0.18);
+    max-width: 520px;
+    object-fit: contain;
+    border-radius: 12px;
     background-color: transparent;
   }
 
@@ -231,7 +228,7 @@ import showcaseImg from "../assets/showcase.png"
     }
 
     .showcase-media-frame {
-      padding: 1.4rem;
+      padding: 0;
     }
 
     .showcase-image {
@@ -253,7 +250,7 @@ import showcaseImg from "../assets/showcase.png"
     }
 
     .showcase-media-frame {
-      padding: 1.1rem;
+      padding: 0;
     }
 
     .showcase-image {

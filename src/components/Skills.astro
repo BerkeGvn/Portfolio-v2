@@ -1,0 +1,252 @@
+---
+---
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+<section class="skills-wrapper flex justify-center px-4 py-8 sm:px-8" id="skills">
+  <div class="skills-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)">
+    <div class="skills-pattern" aria-hidden="true"></div>
+    <div class="skills-highlight" aria-hidden="true"></div>
+
+    <div class="flex flex-col justify-center p-8 sm:p-12 xl:p-16">
+      <div class="space-y-6 lg:space-y-7">
+        <span class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)">
+          <span class="inline-block h-2 w-2 rounded-full bg-(--brand-primary)"></span>
+          スキル
+        </span>
+
+        <h2 class="text-3xl font-semibold leading-[1.08] tracking-tight text-(--ink-strong) sm:text-4xl lg:text-[2.75rem]">
+          <span class="text-(--brand-primary-strong)">使用技術</span>
+        </h2>
+
+        <ul class="skills-highlights grid gap-6 pt-6 sm:grid-cols-2 lg:grid-cols-3">
+          <li class="skills-highlight-card">
+            <i class="devicon-javascript-plain colored"></i>
+            <h3>JavaScript</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-typescript-plain colored"></i>
+            <h3>TypeScript</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-react-original colored"></i>
+            <h3>React</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-vuejs-plain colored"></i>
+            <h3>Vue</h3>
+          </li>
+          <li class="skills-highlight-card">
+<i class="devicon-nextjs-plain colored"></i>
+            <h3>Next.js</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-astro-plain colored"></i>
+            <h3>Astro</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-nuxtjs-plain colored"></i>
+            <h3>Nuxt.js</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-nodejs-plain colored"></i>
+            <h3>Node.js</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-laravel-plain colored"></i>
+            <h3>Laravel</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-html5-plain colored"></i>
+            <h3>HTML</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-css3-plain colored"></i>
+            <h3>CSS</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-tailwindcss-plain colored"></i>
+            <h3>Tailwind CSS</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-git-plain colored"></i>
+            <h3>Git</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-nginx-original colored"></i>
+          
+            <h3>nginx</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-docker-plain colored"></i>
+            <h3>Docker</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-figma-plain colored"></i>
+            <h3>Figma</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-xd-plain colored"></i>
+            <h3>Adobe XD</h3>
+          </li>
+          <li class="skills-highlight-card">
+            <i class="devicon-illustrator-plain colored"></i>
+            <h3>Adobe Illustrator</h3>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-panel {
+    position: relative;
+  }
+
+  .skills-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 60px 60px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .skills-highlight {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    bottom: -160px;
+    left: -140px;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--brand-primary) 38%, transparent) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .skills-panel > .grid,
+  .skills-panel > .grid * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .skills-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skills-highlight-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.5rem;
+    border-radius: 22px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 80%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 96%, transparent);
+    box-shadow: 0 18px 42px rgba(12, 18, 32, 0.06);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    gap: 0.75rem;
+  }
+
+  .skills-highlight-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--brand-primary) 52%, var(--surface-outline));
+    box-shadow: var(--shadow-accent);
+  }
+
+  .skills-highlight-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-strong);
+  }
+
+  .devicon {
+    font-size: 4rem;
+  }
+
+  .skills-media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .skills-media-frame {
+    position: relative;
+    width: min(100%, 440px);
+    padding: 1.6rem;
+    border-radius: 28px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 72%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 98%, transparent);
+    box-shadow: 0 30px 90px rgba(8, 12, 24, 0.12);
+  }
+
+  .media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 420px;
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--brand-primary-soft) 50%, var(--surface-base));
+    color: var(--brand-primary-dark);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 1024px) {
+    .skills-wrapper {
+      padding-block: 2.5rem;
+    }
+
+    .skills-panel {
+      border-radius: 28px;
+    }
+
+    .skills-media-frame {
+      padding: 1.4rem;
+    }
+
+    .media-placeholder {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .skills-wrapper {
+      padding-inline: 1rem;
+    }
+
+    .skills-panel {
+      border-radius: 22px;
+    }
+
+    .skills-panel .grid {
+      gap: 2.75rem;
+    }
+
+    .skills-media-frame {
+      padding: 1.1rem;
+    }
+
+    .media-placeholder {
+      height: 260px;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+  }
+</style>
