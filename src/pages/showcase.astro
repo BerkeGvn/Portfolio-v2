@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import Project from '../components/Project.astro';
+import projects from '../lib/projects.ts';
 ---
 
 <Layout>
-  <!-- Showcase Component Content Here -->
+  {projects.map(project => (
+    <Project project={project} />
+  ))}
 </Layout>

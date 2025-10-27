@@ -1,0 +1,375 @@
+---
+interface Project {
+  title: string;
+  desc: string;
+  img?: string[];
+  link?: string;
+  github?: string;
+  design?: string;
+  tags: string[];
+}
+
+const project = Astro.props.project as Project;
+---
+
+<section class="project-wrapper flex justify-center px-4 py-8 sm:px-8" id={`project-${project.title.replace(/\s+/g, '-').toLowerCase()}`}>
+  <div class="project-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)">
+    <div class="project-pattern" aria-hidden="true"></div>
+    <div class="project-highlight" aria-hidden="true"></div>
+
+    <div class="grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,0.98fr)_minmax(0,1.02fr)] lg:items-center lg:gap-14 xl:p-16">
+      <div class="project-content space-y-6 lg:space-y-7">
+        <span class="project-badge">
+          <span class="project-badge-dot"></span>
+          プロジェクトケース
+        </span>
+
+        <div class="space-y-5">
+          <h2 class="project-title">
+            {project.title}
+          </h2>
+
+          <div class="project-copy space-y-4 text-base text-(--ink-body) sm:text-lg">
+            <p>{project.desc}</p>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <p class="project-section-label">使用したスタック</p>
+          <div class="project-tags">
+            {project.tags.map((tag: string) => (
+              <span class="project-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {(project.link || project.github || project.design) && (
+          <div class="project-links">
+            {project.link && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-link project-link--primary">
+                サイトを見る
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" class="project-link project-link--ghost">
+                GitHub
+              </a>
+            )}
+            {project.design && (
+              <a href={project.design} target="_blank" rel="noopener noreferrer" class="project-link project-link--ghost">
+                デザイン
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div class="project-media">
+        <div class="project-media-frame">
+          {project.img && project.img.length > 0 && (
+            <>
+              <img src={project.img[0]} alt={`${project.title} main image`} class="project-main-image" loading="lazy" decoding="async" />
+              {project.img.length > 1 && (
+                <div class="project-secondary-images">
+                  {project.img.slice(1, 3).map((img: string, index: number) => (
+                    <img src={img} alt={`${project.title} image ${index + 2}`} class="project-secondary-image" loading="lazy" decoding="async" />
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-panel {
+    position: relative;
+  }
+
+  .project-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--surface-outline) 38%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--surface-outline) 38%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 60px 60px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .project-highlight {
+    position: absolute;
+    width: clamp(260px, 28vw, 360px);
+    height: clamp(260px, 28vw, 360px);
+    top: -150px;
+    right: -160px;
+    background: radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--brand-primary) 46%, transparent) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .project-panel > .grid,
+  .project-panel > .grid * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--brand-primary-outline) 88%, transparent);
+    background: color-mix(in srgb, var(--brand-primary-soft) 86%, var(--surface-base));
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--brand-primary-dark) 90%, var(--ink-muted));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 8px 22px rgba(14, 22, 38, 0.1);
+  }
+
+  .project-badge-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--brand-primary-strong);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary) 34%, transparent);
+  }
+
+  .project-title {
+    margin: 0;
+    font-size: clamp(2.15rem, 2.6vw, 2.75rem);
+    font-weight: 650;
+    line-height: 1.08;
+    color: var(--ink-strong);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-section-label {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .project-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--brand-primary-outline) 80%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 96%, var(--brand-primary-soft) 8%);
+    color: color-mix(in srgb, var(--brand-primary-dark) 82%, var(--ink-muted));
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1;
+    box-shadow: var(--shadow-floating);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  }
+
+  .project-tag:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-accent);
+    border-color: color-mix(in srgb, var(--brand-primary) 58%, var(--surface-outline));
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    padding-top: 0.35rem;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.6rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .project-link--primary {
+    background: var(--brand-primary);
+    color: var(--brand-primary-dark);
+    box-shadow: var(--shadow-accent);
+  }
+
+  .project-link--primary:hover {
+    transform: translateY(-4px);
+    background: var(--brand-primary-hover);
+  }
+
+  .project-link--ghost {
+    border: 1px solid color-mix(in srgb, var(--brand-primary-outline) 76%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 96%, transparent);
+    color: color-mix(in srgb, var(--brand-primary-dark) 88%, var(--ink-muted));
+    box-shadow: var(--shadow-floating);
+  }
+
+  .project-link--ghost:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--brand-primary) 50%, var(--surface-outline));
+    background: color-mix(in srgb, var(--brand-primary-soft) 40%, var(--surface-base));
+    box-shadow: var(--shadow-accent);
+  }
+
+  .project-media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-media-frame {
+    position: relative;
+    width: min(100%, 560px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 1.6rem;
+    border-radius: 30px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 74%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 92%, transparent);
+    box-shadow: 0 32px 80px rgba(16, 24, 48, 0.18);
+    overflow: hidden;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .project-main-image {
+    width: 100%;
+    height: auto;
+    max-height: clamp(240px, 32vw, 320px);
+    object-fit: contain;
+    border-radius: 24px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 65%, transparent);
+    box-shadow: 0 22px 45px rgba(15, 24, 43, 0.16);
+    background: color-mix(in srgb, var(--surface-muted) 80%, transparent);
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-secondary-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .project-secondary-image {
+    width: 100%;
+    height: auto;
+    max-height: clamp(120px, 16vw, 180px);
+    object-fit: contain;
+    border-radius: 20px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 60%, transparent);
+    background: color-mix(in srgb, var(--surface-muted) 80%, transparent);
+    box-shadow: 0 16px 32px rgba(16, 24, 48, 0.14);
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0.2rem; /* small padding so contained images don't touch the border */
+  }
+
+  /* content column spacing */
+  .project-content {
+    padding-right: 1.6rem;
+  }
+
+  @media (max-width: 1024px) {
+    .project-wrapper {
+      padding-block: 2.5rem;
+    }
+
+    .project-panel {
+      border-radius: 28px;
+    }
+
+    .project-media-frame {
+      padding: 1.2rem;
+      border-radius: 24px;
+    }
+
+    .project-main-image {
+      height: clamp(220px, 42vw, 280px);
+      border-radius: 20px;
+    }
+
+    .project-secondary-images {
+      gap: 0.8rem;
+    }
+
+    .project-secondary-image {
+      height: clamp(110px, 22vw, 150px);
+      border-radius: 18px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-wrapper {
+      padding-inline: 1rem;
+    }
+
+    .project-panel {
+      border-radius: 22px;
+    }
+
+    .project-panel .grid {
+      gap: 2.75rem;
+    }
+
+    .project-badge {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+    }
+
+    .project-media-frame {
+      padding: 1.05rem;
+      border-radius: 22px;
+      gap: 0.85rem;
+    }
+
+    .project-main-image {
+      height: clamp(200px, 48vw, 240px);
+      border-radius: 18px;
+    }
+
+    .project-secondary-image {
+      height: clamp(96px, 34vw, 132px);
+      border-radius: 16px;
+    }
+  }
+</style>

@@ -12,21 +12,13 @@ const projects: Project[] = [
   {
     title: '業務マッチングプラットフォーム',
     desc: '企業向けの業務マッチング・管理プラットフォームを開発しました。バックエンドにLaravel、フロントエンドにNext.jsを採用し、認証、通知、ダッシュボード、チャット機能などの実装を担当。UIはShadcn UIとTailwind CSSを用いて設計し、拡張性と保守性を重視した構成となっています。',
-    img: [
-      '/src/assets/projects/pt-1.png',
-      '/src/assets/projects/pt-2.png',
-      '/src/assets/projects/pt-3.png',
-    ],
+    img: ['/src/assets/pt-1.png', '/src/assets/pt-2.png', '/src/assets/pt-3.png'],
     tags: ['Next.js', 'TypeScript', 'Laravel', 'MySQL', 'Nginx', 'Tailwind CSS'],
   },
   {
     title: 'OJALA',
     desc: 'Vue.js、SCSS、GSAP、Typescriptを使用したモダンなUIで、ダイナミックなインタラクション、レスポンシブデザイン、視覚的な美しさを備えた E コマース家具ショップとなっております。',
-    img: [
-      '/src/assets/projects/ojala-1.png',
-      '/src/assets/projects/ojala-2.png',
-      '/src/assets/projects/ojala-3.png',
-    ],
+    img: ['/src/assets/ojala-1.png', '/src/assets/ojala-2.png', '/src/assets/ojala-3.png'],
     link: 'https://ojala.vercel.app/',
     github: 'https://github.com/BerkeGvn/Ojala',
     design:
@@ -54,6 +46,7 @@ const projects: Project[] = [
   {
     title: 'Roka Wine',
     desc: 'Roka Wineは、モダンでアニメーション的なユーザーインターフェースを持つランディングページです。ダイナミックなビジュアルと滑らかなアニメーションが調和したデザインは、ワイン好きの方に楽しい体験を提供します。',
+    img: ['/src/assets/roka-1.png', '/src/assets/roka-2.png', '/src/assets/roka-3.png'],
     link: 'https://berkegvn.github.io/Roka-Wine/',
     github: 'https://github.com/BerkeGvn/Roka-Wine',
     design: 'https://www.figma.com/design/wRXCOLfsC8CmNGpeX6Y6VA/Roka-Ecom-v1?node-id=222-3&p=f',
