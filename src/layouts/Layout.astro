@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import scrollScript from '../scripts/scroll-animations.ts?url';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ import scrollScript from '../scripts/scroll-animations.ts?url';
     <title>B.G ポートフォリオ</title>
   </head>
   <body>
+    <Navbar />
     <slot />
     <script
       type="module"

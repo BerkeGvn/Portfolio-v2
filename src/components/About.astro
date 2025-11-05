@@ -1,260 +1,358 @@
 ---
-import { Layers, Sparkles, Workflow, Languages } from "@lucide/astro"
-import aboutImg from "../assets/about.svg";
+import { Layers, Sparkles, Workflow, Languages } from '@lucide/astro';
+import aboutImg from '../assets/about.svg';
 ---
 
-<section class="about-wrapper flex justify-center px-4 py-8 sm:px-8 " id="about" data-animate="section">
-		<div class="about-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)" data-animate-target>
-		<div class="about-pattern" aria-hidden="true"></div>
-		<div class="about-highlight" aria-hidden="true"></div>
+<section
+  class="about-wrapper flex justify-center px-4 py-8 sm:px-8"
+  id="about"
+  data-animate="section"
+>
+  <div
+    class="about-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)"
+    data-animate-target
+  >
+    <div
+      class="about-pattern"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="about-highlight"
+      aria-hidden="true"
+    >
+    </div>
 
-		<div class="grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14 xl:p-16">
-			<div class="space-y-6 lg:space-y-7">
-				<span class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)">
-					<span class="inline-block h-2 w-2 rounded-full bg-(--brand-primary)"></span>
-					コンセプト
-				</span>
+    <div
+      class="about-grid grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14 xl:p-16"
+    >
+      <div class="about-media about-media--mobile-first">
+        <div class="about-media-frame">
+          <div
+            class="media-placeholder"
+            style={`background-image: url('${aboutImg.src}');`}
+            aria-hidden="true"
+          >
+            <span>イラスト/画像</span>
+          </div>
+        </div>
+      </div>
 
-				<h2 class="text-3xl font-semibold leading-[1.1] tracking-tight text-(--ink-strong) sm:text-4xl lg:text-[2.65rem]">
-					<span class="text-(--brand-primary-strong)">「機能性」</span>と
-					<span class="text-(--brand-primary-strong)">「使いやすさ」</span>を両立した、ビジネス成果につながるWebエンジニアリングを
-				</h2>
+      <div class="about-content space-y-6 lg:space-y-7">
+        <span
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)"
+        >
+          <span class="inline-block h-2 w-2 rounded-full bg-(--brand-primary)"></span>
+          コンセプト
+        </span>
 
-				<div class="about-copy space-y-4 text-base text-(--ink-body) sm:text-lg">
-					<p>
-ユーザーが迷わず目的にたどり着けるシンプルで効率的なUIを重視しています。
-デザインから実装、改善まで一貫して対応し、使いやすさとビジネス成果の両立を目指します。
-					</p>
-					<p>
-管理ダッシュボードやマッチングプラットフォームなどの開発経験を通じて、再利用性の高いコンポーネント設計や効率的なワークフローを実践してきました。
-					</p>
-				</div>
+        <h2
+          class="text-3xl font-semibold leading-[1.1] tracking-tight text-(--ink-strong) sm:text-4xl lg:text-[2.65rem]"
+        >
+          <span class="text-(--brand-primary-strong)">「機能性」</span>と
+          <span class="text-(--brand-primary-strong)">「使いやすさ」</span
+          >を両立した、ビジネス成果につながるWebエンジニアリングを
+        </h2>
 
-				<ul class="about-highlights grid gap-4 pt-2 sm:grid-cols-2">
-					<li class="about-highlight-card" data-animate-child>
-						<span class="icon-badge">
-							<Layers class="icon" />
-						</span>
-						<div>
-							<h3>設計から実装・運用まで一貫対応</h3>
-							<p>要件定義からリリース後の改善まで対応し、継続的な価値提供を実現します。</p>
-						</div>
-					</li>
-					<li class="about-highlight-card" data-animate-child>
-						<span class="icon-badge">
-							<Sparkles class="icon" />
-						</span>
-						<div>
-							<h3>再利用性と拡張性を考慮した設計</h3>
-							<p>デザインシステムとブランドトークンを活用し、長期的に成長できるプロダクトを構築します。</p>
-						</div>
-					</li>
-					<li class="about-highlight-card" data-animate-child>
-						<span class="icon-badge">
-							<Workflow class="icon" />
-						</span>
-						<div>
-							<h3>ユーザー視点のUI/UX設計</h3>
-							<p>プロトタイプ検証を重ね、直感的に使えるインターフェースを追求します。</p>
-						</div>
-					</li>
-					<li class="about-highlight-card" data-animate-child>
-						<span class="icon-badge">
-							<Languages class="icon" />
-						</span>
-						<div>
-							<h3>多言語・多文化環境での開発経験</h3>
-							<p>トルコ語・英語・日本語でのコミュニケーションにより、グローバルな開発チームとも円滑に協働。</p>
-						</div>
-					</li>
-				</ul>
-			</div>
+        <div class="about-copy space-y-4 text-base text-(--ink-body) sm:text-lg">
+          <p>
+            ユーザーが迷わず目的にたどり着けるシンプルで効率的なUIを重視しています。
+            デザインから実装、改善まで一貫して対応し、使いやすさとビジネス成果の両立を目指します。
+          </p>
+          <p>
+            管理ダッシュボードやマッチングプラットフォームなどの開発経験を通じて、再利用性の高いコンポーネント設計や効率的なワークフローを実践してきました。
+          </p>
+        </div>
 
-			<div class="about-media">
-					<div class="about-media-frame">
-								<div class="media-placeholder" style={`background-image: url('${aboutImg.src}');`} aria-hidden="true">
-									<span>イラスト/画像</span>
-								</div>
-							</div>
-			</div>
-		</div>
-	</div>
+        <ul class="about-highlights grid gap-4 pt-2 sm:grid-cols-2">
+          <li
+            class="about-highlight-card"
+            data-animate-child
+          >
+            <span class="icon-badge">
+              <Layers class="icon" />
+            </span>
+            <div>
+              <h3>設計から実装・運用まで一貫対応</h3>
+              <p>要件定義からリリース後の改善まで対応し、継続的な価値提供を実現します。</p>
+            </div>
+          </li>
+          <li
+            class="about-highlight-card"
+            data-animate-child
+          >
+            <span class="icon-badge">
+              <Sparkles class="icon" />
+            </span>
+            <div>
+              <h3>再利用性と拡張性を考慮した設計</h3>
+              <p>
+                デザインシステムとブランドトークンを活用し、長期的に成長できるプロダクトを構築します。
+              </p>
+            </div>
+          </li>
+          <li
+            class="about-highlight-card"
+            data-animate-child
+          >
+            <span class="icon-badge">
+              <Workflow class="icon" />
+            </span>
+            <div>
+              <h3>ユーザー視点のUI/UX設計</h3>
+              <p>プロトタイプ検証を重ね、直感的に使えるインターフェースを追求します。</p>
+            </div>
+          </li>
+          <li
+            class="about-highlight-card"
+            data-animate-child
+          >
+            <span class="icon-badge">
+              <Languages class="icon" />
+            </span>
+            <div>
+              <h3>多言語・多文化環境での開発経験</h3>
+              <p>
+                トルコ語・英語・日本語でのコミュニケーションにより、グローバルな開発チームとも円滑に協働。
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-	.about-panel {
-		position: relative;
-	}
+  .about-panel {
+    position: relative;
+  }
 
-	.about-pattern {
-		position: absolute;
-		inset: 0;
-		background-image: linear-gradient(
-				to right,
-				color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
-				transparent 1px
-			),
-			linear-gradient(
-				to bottom,
-				color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
-				transparent 1px
-			);
-		background-size: 60px 60px;
-		opacity: 0.45;
-		pointer-events: none;
-		z-index: 0;
-	}
+  .about-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--surface-outline) 36%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 60px 60px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-	.about-highlight {
-		position: absolute;
-		width: 320px;
-		height: 320px;
-		bottom: -160px;
-		left: -140px;
-		background: radial-gradient(
-			circle,
-			color-mix(in srgb, var(--brand-primary) 38%, transparent) 0%,
-			transparent 70%
-		);
-		pointer-events: none;
-		z-index: 0;
-	}
+  .about-highlight {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    bottom: -160px;
+    left: -140px;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--brand-primary) 38%, transparent) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
 
-	.about-panel > .grid,
-	.about-panel > .grid * {
-		position: relative;
-		z-index: 1;
-	}
+  .about-panel > .grid,
+  .about-panel > .grid * {
+    position: relative;
+    z-index: 1;
+  }
 
-	.about-highlights {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
+  .about-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-	.about-highlight-card {
-		display: flex;
-		gap: 0.9rem;
-		padding: 1rem 1.1rem;
-		border-radius: 22px;
-		border: 1px solid color-mix(in srgb, var(--surface-outline) 80%, transparent);
-		background: color-mix(in srgb, var(--surface-base) 96%, transparent);
-		box-shadow: 0 18px 42px rgba(12, 18, 32, 0.06);
-		transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-	}
+  .about-highlight-card {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1rem 1.1rem;
+    border-radius: 22px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 80%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 96%, transparent);
+    box-shadow: 0 18px 42px rgba(12, 18, 32, 0.06);
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
 
-	.about-highlight-card:hover {
-		transform: translateY(-6px);
-		border-color: color-mix(in srgb, var(--brand-primary) 52%, var(--surface-outline));
-		box-shadow: var(--shadow-accent);
-	}
+  .about-highlight-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--brand-primary) 52%, var(--surface-outline));
+    box-shadow: var(--shadow-accent);
+  }
 
-	.about-highlight-card h3 {
-		margin: 0 0 0.3rem;
-		font-size: 1rem;
-		font-weight: 600;
-		color: var(--ink-strong);
-	}
+  .about-highlight-card h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink-strong);
+  }
 
-	.about-highlight-card p {
-		margin: 0;
-		font-size: 0.92rem;
-		line-height: 1.5;
-		color: var(--ink-muted);
-	}
+  .about-highlight-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
 
-	.icon-badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		height: 2.5rem;
-		width: 2.5rem;
-		border-radius: 999px;
-		background: color-mix(in srgb, var(--brand-primary) 20%, var(--surface-base));
-		color: var(--brand-primary-dark);
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-	}
+  .icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-primary) 20%, var(--surface-base));
+    color: var(--brand-primary-dark);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
 
-	.icon {
-		width: 1.35rem;
-		height: 1.35rem;
-	}
+  .icon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
 
-	.about-media {
-		display: flex;
-		justify-content: center;
-	}
+  .about-media {
+    display: flex;
+    justify-content: center;
+  }
 
-	.about-media-frame {
-		position: relative;
-		width: min(100%, 440px);
-		padding: 1.6rem;
-		border-radius: 28px;
-		border: 1px solid color-mix(in srgb, var(--surface-outline) 72%, transparent);
-		background: color-mix(in srgb, var(--surface-base) 98%, transparent);
-		box-shadow: 0 30px 90px rgba(8, 12, 24, 0.12);
-	}
+  .about-media-frame {
+    position: relative;
+    width: min(100%, 440px);
+    padding: 1.6rem;
+    border-radius: 28px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 72%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 98%, transparent);
+    box-shadow: 0 30px 90px rgba(8, 12, 24, 0.12);
+  }
 
-	.media-placeholder {
-		display: block;
-		height: 420px; /* increased to avoid cutting faces for illustrations */
-		border-radius: 24px;
-		background-size: contain; /* keep full svg visible */
-		background-position: center;
-		background-repeat: no-repeat;
-		border: none;
-		background-color: transparent;
-	}
+  .media-placeholder {
+    display: block;
+    height: 420px; /* increased to avoid cutting faces for illustrations */
+    border-radius: 24px;
+    background-size: contain; /* keep full svg visible */
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+  }
 
-	.media-placeholder > * {
-		display: none;
-	}
+  .media-placeholder > * {
+    display: none;
+  }
 
-	.media-caption {
-		margin-top: 1.25rem;
-		font-size: 0.9rem;
-		color: var(--ink-subtle);
-		line-height: 1.6;
-	}
+  .media-caption {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--ink-subtle);
+    line-height: 1.6;
+  }
 
-	@media (max-width: 1024px) {
-		.about-wrapper {
-			padding-block: 2.5rem;
-		}
+  @media (max-width: 1024px) {
+    .about-wrapper {
+      padding-block: 2.5rem;
+    }
 
-		.about-panel {
-			border-radius: 28px;
-		}
+    .about-panel {
+      border-radius: 28px;
+    }
 
-		.about-media-frame {
-			padding: 1.4rem;
-		}
+    .about-media-frame {
+      padding: 1.4rem;
+    }
 
-		.media-placeholder {
-			height: 300px;
-		}
-	}
+    .media-placeholder {
+      height: 300px;
+    }
+  }
 
-	@media (max-width: 640px) {
-		.about-wrapper {
-			padding-inline: 1rem;
-		}
+  @media (max-width: 640px) {
+    .about-wrapper {
+      padding-inline: 1rem;
+    }
 
-		.about-panel {
-			border-radius: 22px;
-		}
+    .about-panel {
+      border-radius: 22px;
+    }
 
-		.about-panel .grid {
-			gap: 2.75rem;
-		}
+    .about-grid {
+      grid-template-columns: 1fr;
+      padding: 2.2rem 1.5rem;
+      gap: 2.5rem;
+      text-align: center;
+    }
 
-		.about-media-frame {
-			padding: 1.1rem;
-		}
+    /* Show media first on mobile */
+    .about-media--mobile-first {
+      order: -1;
+    }
 
-		.media-placeholder {
-			height: 260px;
-			border-radius: 20px;
-		}
-	}
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .about-content > span {
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .about-copy {
+      max-width: 34rem;
+      text-align: left;
+    }
+
+    .about-highlights {
+      gap: 0.85rem;
+    }
+
+    .about-highlight-card {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 1rem 0.95rem;
+    }
+
+    .about-media-frame {
+      padding: 1rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .media-placeholder {
+      height: 220px;
+      border-radius: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-panel .grid {
+      padding: 2rem 1.2rem;
+      gap: 2.25rem;
+    }
+
+    .about-copy {
+      text-align: left;
+    }
+
+    .media-placeholder {
+      height: 200px;
+    }
+  }
 </style>

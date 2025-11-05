@@ -1,19 +1,42 @@
 ---
-import { Button } from "./ui/button"
-import { MonitorSmartphone, LineChart, Sparkles, Workflow } from "@lucide/astro"
-import showcaseImg from "../assets/showcase.png"
+import { Button } from './ui/button';
+import { MonitorSmartphone, LineChart, Sparkles, Workflow } from '@lucide/astro';
+import showcaseImg from '../assets/showcase.png';
 ---
 
-<section class="showcase-wrapper flex justify-center px-4 py-8 sm:px-8 " id="showcase" data-animate="section">
-  <div class="showcase-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)" data-animate-target>
-    <div class="showcase-pattern" aria-hidden="true"></div>
-    <div class="showcase-highlight" aria-hidden="true"></div>
+<section
+  class="showcase-wrapper flex justify-center px-4 py-8 sm:px-8"
+  id="showcase"
+  data-animate="section"
+>
+  <div
+    class="showcase-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)"
+    data-animate-target
+  >
+    <div
+      class="showcase-pattern"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="showcase-highlight"
+      aria-hidden="true"
+    >
+    </div>
 
-    <div class="grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-14 xl:p-16">
+    <div
+      class="grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-14 xl:p-16"
+    >
       <div class="showcase-media">
         <div class="showcase-media-frame">
-          <img src={showcaseImg.src} alt="Dashboard showcase preview" class="showcase-image" loading="lazy" decoding="async" />
-                    <div class="mt-4 flex justify-center">
+          <img
+            src={showcaseImg.src}
+            alt="Dashboard showcase preview"
+            class="showcase-image"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="mt-4 flex justify-center showcase-button-desktop">
             <a
               href="/showcase"
               class="inline-flex items-center justify-center rounded-full bg-(--brand-primary) px-24 py-2.5 text-sm font-semibold text-(--brand-primary-dark) shadow-(--shadow-accent) transition duration-300 hover:-translate-y-0.5 hover:bg-(--brand-primary-hover) focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-(--brand-primary-strong)"
@@ -23,14 +46,20 @@ import showcaseImg from "../assets/showcase.png"
         </div>
       </div>
 
-      <div class="space-y-6 lg:space-y-7">
-        <span class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)">
+      <div class="showcase-content space-y-6 lg:space-y-7">
+        <span
+          class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)"
+        >
           <span class="inline-block h-2 w-2 rounded-full bg-(--brand-primary)"></span>
           最新のショーケース
         </span>
 
-        <h2 class="text-3xl font-semibold leading-[1.08] tracking-tight text-(--ink-strong) sm:text-4xl lg:text-[2.75rem]">
-          結果を生むデザインと実装を、<span class="text-(--brand-primary-strong)">ひとりのWebエンジニアとして</span>
+        <h2
+          class="text-3xl font-semibold leading-[1.08] tracking-tight text-(--ink-strong) sm:text-4xl lg:text-[2.75rem]"
+        >
+          結果を生むデザインと実装を、<span class="text-(--brand-primary-strong)"
+            >ひとりのWebエンジニアとして</span
+          >
         </h2>
 
         <div class="showcase-copy space-y-4 text-base text-(--ink-body) sm:text-lg">
@@ -39,12 +68,15 @@ import showcaseImg from "../assets/showcase.png"
             使いやすさとコードの美しさを両立し、見る人・使う人の両方に心地よい体験を届けることを目指しています。
           </p>
           <p>
-        複数のWebプロジェクトを通じて、読みやすく再利用できるコードとスムーズな開発フローを追求してきました。
+            複数のWebプロジェクトを通じて、読みやすく再利用できるコードとスムーズな開発フローを追求してきました。
           </p>
         </div>
 
         <ul class="showcase-highlights grid gap-4 pt-2 sm:grid-cols-2">
-          <li class="showcase-highlight-card" data-animate-child>
+          <li
+            class="showcase-highlight-card"
+            data-animate-child
+          >
             <span class="icon-badge">
               <MonitorSmartphone class="icon" />
             </span>
@@ -53,7 +85,10 @@ import showcaseImg from "../assets/showcase.png"
               <p>デザインとコーディングの両面から考え、メンテナンス性の高いUIを構築します。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card" data-animate-child>
+          <li
+            class="showcase-highlight-card"
+            data-animate-child
+          >
             <span class="icon-badge">
               <Workflow class="icon" />
             </span>
@@ -62,7 +97,10 @@ import showcaseImg from "../assets/showcase.png"
               <p>シンプルな構成と自動化を意識し、スピードと品質のバランスを保ちます。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card" data-animate-child>
+          <li
+            class="showcase-highlight-card"
+            data-animate-child
+          >
             <span class="icon-badge">
               <Sparkles class="icon" />
             </span>
@@ -71,7 +109,10 @@ import showcaseImg from "../assets/showcase.png"
               <p>カラーやタイポグラフィ、モーションを整え、プロダクト全体の一貫性を保ちます。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card" data-animate-child>
+          <li
+            class="showcase-highlight-card"
+            data-animate-child
+          >
             <span class="icon-badge">
               <LineChart class="icon" />
             </span>
@@ -81,7 +122,15 @@ import showcaseImg from "../assets/showcase.png"
             </div>
           </li>
         </ul>
+      </div>
 
+      <!-- Mobile button - shown only on small screens at bottom -->
+      <div class="showcase-button-mobile mt-4 flex justify-center">
+        <a
+          href="/showcase"
+          class="inline-flex items-center justify-center rounded-full bg-(--brand-primary) px-24 py-2.5 text-sm font-semibold text-(--brand-primary-dark) shadow-(--shadow-accent) transition duration-300 hover:-translate-y-0.5 hover:bg-(--brand-primary-hover) focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-(--brand-primary-strong)"
+          >実績を見る</a
+        >
       </div>
     </div>
   </div>
@@ -146,7 +195,10 @@ import showcaseImg from "../assets/showcase.png"
     border: 1px solid color-mix(in srgb, var(--surface-outline) 80%, transparent);
     background: color-mix(in srgb, var(--surface-base) 96%, transparent);
     box-shadow: 0 18px 42px rgba(12, 18, 32, 0.06);
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
   }
 
   .showcase-highlight-card:hover {
@@ -206,8 +258,6 @@ import showcaseImg from "../assets/showcase.png"
     justify-content: center;
   }
 
-
-
   .showcase-image {
     position: relative;
     z-index: 2;
@@ -216,6 +266,15 @@ import showcaseImg from "../assets/showcase.png"
     object-fit: contain;
     border-radius: 12px;
     background-color: transparent;
+  }
+
+  /* Hide mobile button on desktop, show desktop button */
+  .showcase-button-mobile {
+    display: none;
+  }
+
+  .showcase-button-desktop {
+    display: flex;
   }
 
   @media (max-width: 1024px) {
@@ -246,15 +305,86 @@ import showcaseImg from "../assets/showcase.png"
     }
 
     .showcase-panel .grid {
-      gap: 2.75rem;
+      grid-template-columns: 1fr;
+      padding: 2.25rem 1.5rem;
+      gap: 2.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Hide desktop button, show mobile button on small screens */
+    .showcase-button-desktop {
+      display: none;
+    }
+
+    .showcase-button-mobile {
+      display: flex;
+      order: 3;
+    }
+
+    .showcase-media {
+      order: -1;
     }
 
     .showcase-media-frame {
       padding: 0;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .showcase-image {
       border-radius: 18px;
+      order: 1;
+    }
+
+    .showcase-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      order: 1;
+    }
+
+    .showcase-content > span {
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .showcase-copy {
+      max-width: 34rem;
+      text-align: left;
+    }
+
+    .showcase-highlights {
+      gap: 0.85rem;
+    }
+
+    .showcase-highlight-card {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 1rem 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .showcase-panel .grid {
+      padding: 2rem 1.2rem;
+      gap: 2.25rem;
+    }
+
+    .showcase-copy {
+      text-align: left;
+    }
+
+    .showcase-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .showcase-highlight-card {
+      align-items: flex-start;
     }
   }
 </style>

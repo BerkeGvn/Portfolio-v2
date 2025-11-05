@@ -1,0 +1,380 @@
+---
+const { pathname } = Astro.url;
+
+interface NavLink {
+  id: string;
+  label: string;
+}
+
+const navLinks: NavLink[] = [
+  { id: 'top', label: 'ホーム' },
+  { id: 'about', label: 'コンセプト' },
+  { id: 'skills', label: 'スキル' },
+];
+
+const showcaseHref = '/showcase';
+const isIndex = pathname === '/';
+
+const hrefFor = (id: string) => (isIndex ? `#${id}` : `/#${id}`);
+---
+
+<nav class="site-nav" aria-label="メインナビゲーション">
+  <div class="nav-shell">
+    <a class="brand" href={isIndex ? '#top' : '/'}>
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span>Berke</span>
+        <span>Portfolio</span>
+      </span>
+    </a>
+
+    <button
+      class="menu-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav-menu"
+      data-nav-trigger
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-group" id="site-nav-menu" data-nav-menu>
+      <div class="nav-links">
+        {navLinks.map((link) => (
+          <a
+            class="nav-link"
+            href={hrefFor(link.id)}
+            data-scroll-link={link.id}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <a class="nav-cta" href={showcaseHref}>
+        ショーケース
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style is:global>
+  .site-nav {
+    position: sticky;
+    top: 0.75rem;
+    z-index: 50;
+    padding: 0 1rem;
+  }
+
+  .nav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 auto;
+    width: min(100%, 72rem);
+    max-width: 72rem;
+    padding: 0.85rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 65%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 92%, rgba(255, 255, 255, 0.75) 8%);
+    box-shadow: 0 18px 44px rgba(12, 18, 32, 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-strong);
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-hover) 100%);
+    color: var(--brand-primary-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--ink-strong) 92%, var(--brand-primary-dark));
+  }
+
+  .brand-text span:first-child {
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.1rem);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.65rem, 2vw, 0.9rem);
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: color 0.25s ease, background-color 0.25s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 -0.35rem 0;
+    height: 0.25rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand-primary) 75%, transparent);
+    transform: scaleX(0.3);
+    opacity: 0;
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--ink-strong);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 650;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    background: linear-gradient(130deg, var(--brand-primary) 0%, var(--brand-primary-hover) 100%);
+    color: var(--brand-primary-dark);
+    box-shadow: var(--shadow-accent);
+    border: 1px solid color-mix(in srgb, var(--brand-primary-outline) 68%, transparent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent-strong);
+    filter: saturate(1.1);
+  }
+
+  .menu-trigger {
+    display: none;
+    position: relative;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--surface-outline) 68%, transparent);
+    background: color-mix(in srgb, var(--surface-base) 92%, rgba(255, 255, 255, 0.7) 8%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .menu-trigger span {
+    position: absolute;
+    left: 50%;
+    width: 45%;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--ink-muted);
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-trigger span:nth-child(1) {
+    top: 38%;
+  }
+
+  .menu-trigger span:nth-child(2) {
+    top: 50%;
+  }
+
+  .menu-trigger span:nth-child(3) {
+    top: 62%;
+  }
+
+  .menu-trigger[aria-expanded='true'] {
+    border-color: color-mix(in srgb, var(--brand-primary-outline) 75%, transparent);
+  }
+
+  .menu-trigger[aria-expanded='true'] span:nth-child(1) {
+    transform: translateX(-50%) translateY(6px) rotate(45deg);
+  }
+
+  .menu-trigger[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-trigger[aria-expanded='true'] span:nth-child(3) {
+    transform: translateX(-50%) translateY(-6px) rotate(-45deg);
+  }
+
+  @media (max-width: 900px) {
+    .nav-shell {
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-links {
+      gap: 0.65rem;
+    }
+
+    .nav-link {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.2rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .site-nav {
+      top: 0.5rem;
+    }
+
+    .nav-shell {
+      position: relative;
+      padding: 0.65rem 0.85rem;
+    }
+
+    .menu-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-group {
+      position: absolute;
+      right: 0.85rem;
+      top: calc(100% + 0.75rem);
+      width: min(260px, calc(100vw - 2.5rem));
+      padding: 1rem 1.1rem;
+      border-radius: 22px;
+      border: 1px solid color-mix(in srgb, var(--surface-outline) 68%, transparent);
+      background: color-mix(in srgb, var(--surface-base) 94%, rgba(255, 255, 255, 0.85) 6%);
+      box-shadow: 0 28px 60px rgba(12, 18, 32, 0.18);
+      backdrop-filter: blur(18px);
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .nav-group.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      padding: 0.55rem 0.75rem;
+      color: var(--ink-body);
+      background: color-mix(in srgb, var(--surface-base) 90%, transparent);
+      border: 1px solid color-mix(in srgb, var(--surface-outline) 68%, transparent);
+    }
+
+    .nav-link::after {
+      display: none;
+    }
+
+    .nav-cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script type="module">
+  const trigger = document.querySelector('[data-nav-trigger]');
+  const menu = document.querySelector('[data-nav-menu]');
+
+  const closeMenu = () => {
+    if (!trigger || !menu) return;
+    trigger.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('is-open');
+  };
+
+  const smoothScrollTo = (id) => {
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  if (trigger && menu) {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('is-open', !expanded);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) {
+        closeMenu();
+      }
+    });
+  }
+
+  document.querySelectorAll('[data-scroll-link]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const id = link.getAttribute('data-scroll-link');
+      if (!id) {
+        return;
+      }
+
+      const href = link.getAttribute('href') || '';
+      const isHash = href.startsWith('#');
+
+      if (isHash) {
+        event.preventDefault();
+        smoothScrollTo(id);
+        closeMenu();
+      }
+    });
+  });
+</script>
