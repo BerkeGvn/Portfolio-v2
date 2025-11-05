@@ -28,17 +28,15 @@ const hrefFor = (id: string) => (isIndex ? `#${id}` : `/#${id}`);
       </span>
     </a>
 
-    <button
+    <input
       class="menu-trigger"
-      type="button"
+      type="checkbox"
+      role="button"
+      aria-label="ナビゲーションを開閉"
       aria-expanded="false"
       aria-controls="site-nav-menu"
       data-nav-trigger
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    />
 
     <div class="nav-group" id="site-nav-menu" data-nav-menu>
       <div class="nav-links">
@@ -189,54 +187,74 @@ const hrefFor = (id: string) => (isIndex ? `#${id}` : `/#${id}`);
   }
 
   .menu-trigger {
+    --menu-size: 2.35rem;
+    --menu-color: var(--ink-strong);
     display: none;
+    height: var(--menu-size);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--menu-size) / 2.4) solid transparent;
+    box-sizing: content-box;
     position: relative;
-    width: 2.75rem;
-    height: 2.75rem;
     border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--surface-outline) 68%, transparent);
-    background: color-mix(in srgb, var(--surface-base) 92%, rgba(255, 255, 255, 0.7) 8%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: color-mix(
+      in srgb,
+      var(--surface-base) 97%,
+      rgba(255, 255, 255, 0.6) 3%
+    );
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    background: transparent;
+    cursor: pointer;
+    transition: background-size 0.25s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
-  .menu-trigger span {
+  .menu-trigger::before,
+  .menu-trigger::after {
+    content: '';
     position: absolute;
     left: 50%;
-    width: 45%;
+    width: 48%;
     height: 2px;
     border-radius: 999px;
-    background: var(--ink-muted);
-    transform: translateX(-50%);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    background: var(--menu-color);
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
 
-  .menu-trigger span:nth-child(1) {
-    top: 38%;
-  }
-
-  .menu-trigger span:nth-child(2) {
+  .menu-trigger::before {
     top: 50%;
+    box-shadow: 0 -7px 0 0 var(--menu-color);
   }
 
-  .menu-trigger span:nth-child(3) {
-    top: 62%;
+  .menu-trigger::after {
+    top: 50%;
+    background: transparent;
+    box-shadow: 0 7px 0 0 var(--menu-color);
   }
 
-  .menu-trigger[aria-expanded='true'] {
-    border-color: color-mix(in srgb, var(--brand-primary-outline) 75%, transparent);
+  .menu-trigger:checked {
+    background-size: 0 0;
   }
 
-  .menu-trigger[aria-expanded='true'] span:nth-child(1) {
-    transform: translateX(-50%) translateY(6px) rotate(45deg);
+  .menu-trigger:checked::before {
+    box-shadow: none;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
-  .menu-trigger[aria-expanded='true'] span:nth-child(2) {
-    opacity: 0;
+  .menu-trigger:checked::after {
+    background: var(--menu-color);
+    box-shadow: none;
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
-  .menu-trigger[aria-expanded='true'] span:nth-child(3) {
-    transform: translateX(-50%) translateY(-6px) rotate(-45deg);
+  .menu-trigger:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--brand-primary) 70%, var(--ink-strong));
+    outline-offset: 5px;
   }
 
   @media (max-width: 900px) {
@@ -325,14 +343,11 @@ const hrefFor = (id: string) => (isIndex ? `#${id}` : `/#${id}`);
 </style>
 
 <script type="module">
+  /**
+   * @type {HTMLInputElement | null}
+   */
   const trigger = document.querySelector('[data-nav-trigger]');
   const menu = document.querySelector('[data-nav-menu]');
-
-  const closeMenu = () => {
-    if (!trigger || !menu) return;
-    trigger.setAttribute('aria-expanded', 'false');
-    menu.classList.remove('is-open');
-  };
 
   const smoothScrollTo = (id) => {
     if (id === 'top') {
@@ -346,11 +361,21 @@ const hrefFor = (id: string) => (isIndex ? `#${id}` : `/#${id}`);
     }
   };
 
+  const setMenuState = (isOpen) => {
+    if (!trigger || !menu) return;
+    trigger.setAttribute('aria-expanded', String(isOpen));
+    trigger.checked = isOpen;
+    menu.classList.toggle('is-open', isOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuState(false);
+  };
+
   if (trigger && menu) {
-    trigger.addEventListener('click', () => {
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
-      trigger.setAttribute('aria-expanded', String(!expanded));
-      menu.classList.toggle('is-open', !expanded);
+    trigger.checked = false;
+    trigger.addEventListener('change', () => {
+      setMenuState(trigger.checked);
     });
 
     window.addEventListener('resize', () => {
