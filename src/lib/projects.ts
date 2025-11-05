@@ -16,6 +16,9 @@ import roka3 from '../assets/roka-3.png';
 import battleship1 from '../assets/battleship-1.png';
 import battleship2 from '../assets/battleship-2.png';
 import battleship3 from '../assets/battleship-3.png';
+import zooa1 from '../assets/zooa-1.png';
+import zooa2 from '../assets/zooa-2.png';
+import zooa3 from '../assets/zooa-3.png';
 
 import type { ImageMetadata } from 'astro';
 
@@ -35,6 +38,13 @@ const projects: Project[] = [
     desc: '企業向けの業務マッチング・管理プラットフォームを開発しました。バックエンドにLaravel、フロントエンドにNext.jsを採用し、認証、通知、ダッシュボード、チャット機能などの実装を担当。UIはShadcn UIとTailwind CSSを用いて設計し、拡張性と保守性を重視した構成となっています。',
     img: [pt1, pt2, pt3],
     tags: ['Next.js', 'TypeScript', 'Laravel', 'MySQL', 'Nginx', 'Tailwind CSS'],
+  },
+  {
+    title: 'ZOOA 採用サイト',
+    desc: 'Astro.js、Vue、TypeScript、Laravel、Dockerを使用してZOOA株式会社の採用サイトと管理ダッシュボードを開発。パフォーマンスとデザイン性を両立し、求人情報の更新を効率化する管理画面も実装しました。',
+    img: [zooa1, zooa2, zooa3],
+    link: 'https://job.zooa.co.jp/',
+    tags: ['Astro.js', 'Vue', 'TypeScript', 'Laravel', 'Docker'],
   },
   {
     title: 'OJALA',
@@ -76,11 +86,7 @@ const projects: Project[] = [
   {
     title: 'Battleship Game',
     desc: 'JavaScriptで作られた戦艦ゲームは、戦略的な船の配置をドラッグ＆ドロップで行うことができます。対戦相手は人工知能です。シンプルで直感的なインターフェースを提供し、プレイヤーは自分の船を配置し、相手の船を撃沈することを目指します。',
-    img: [
-      battleship1,
-      battleship2,
-      battleship3,
-    ],
+    img: [battleship1, battleship2, battleship3],
     link: 'https://berkegvn.github.io/battleship_game/',
     github: 'https://github.com/BerkeGvn/battleship_game',
     tags: ['HTML', 'SCSS', 'JavaScript'],
