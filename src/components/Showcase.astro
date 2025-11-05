@@ -4,8 +4,8 @@ import { MonitorSmartphone, LineChart, Sparkles, Workflow } from "@lucide/astro"
 import showcaseImg from "../assets/showcase.png"
 ---
 
-<section class="showcase-wrapper flex justify-center px-4 py-8 sm:px-8 " id="showcase">
-  <div class="showcase-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)">
+<section class="showcase-wrapper flex justify-center px-4 py-8 sm:px-8 " id="showcase" data-animate="section">
+  <div class="showcase-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)" data-animate-target>
     <div class="showcase-pattern" aria-hidden="true"></div>
     <div class="showcase-highlight" aria-hidden="true"></div>
 
@@ -44,7 +44,7 @@ import showcaseImg from "../assets/showcase.png"
         </div>
 
         <ul class="showcase-highlights grid gap-4 pt-2 sm:grid-cols-2">
-          <li class="showcase-highlight-card">
+          <li class="showcase-highlight-card" data-animate-child>
             <span class="icon-badge">
               <MonitorSmartphone class="icon" />
             </span>
@@ -53,7 +53,7 @@ import showcaseImg from "../assets/showcase.png"
               <p>デザインとコーディングの両面から考え、メンテナンス性の高いUIを構築します。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card">
+          <li class="showcase-highlight-card" data-animate-child>
             <span class="icon-badge">
               <Workflow class="icon" />
             </span>
@@ -62,7 +62,7 @@ import showcaseImg from "../assets/showcase.png"
               <p>シンプルな構成と自動化を意識し、スピードと品質のバランスを保ちます。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card">
+          <li class="showcase-highlight-card" data-animate-child>
             <span class="icon-badge">
               <Sparkles class="icon" />
             </span>
@@ -71,7 +71,7 @@ import showcaseImg from "../assets/showcase.png"
               <p>カラーやタイポグラフィ、モーションを整え、プロダクト全体の一貫性を保ちます。</p>
             </div>
           </li>
-          <li class="showcase-highlight-card">
+          <li class="showcase-highlight-card" data-animate-child>
             <span class="icon-badge">
               <LineChart class="icon" />
             </span>

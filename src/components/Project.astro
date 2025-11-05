@@ -18,9 +18,11 @@ const project = Astro.props.project as Project;
 <section
   class="project-wrapper flex justify-center px-4 py-8 sm:px-8"
   id={`project-${project.title.replace(/\s+/g, '-').toLowerCase()}`}
+  data-animate="section"
 >
   <div
     class="project-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)"
+    data-animate-target
   >
     <div
       class="project-pattern"
@@ -55,7 +57,11 @@ const project = Astro.props.project as Project;
         <div class="space-y-3">
           <p class="project-section-label">使用したスタック</p>
           <div class="project-tags">
-            {project.tags.map((tag: string) => <span class="project-tag">{tag}</span>)}
+            {project.tags.map((tag: string) => (
+              <span class="project-tag" data-animate-child>
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -108,6 +114,7 @@ const project = Astro.props.project as Project;
                   class="project-main-image"
                   loading="lazy"
                   decoding="async"
+                  data-animate-child
                 />
                 {project.img.length > 1 && (
                   <div class="project-secondary-images">
@@ -118,6 +125,7 @@ const project = Astro.props.project as Project;
                         class="project-secondary-image"
                         loading="lazy"
                         decoding="async"
+                        data-animate-child
                       />
                     ))}
                   </div>

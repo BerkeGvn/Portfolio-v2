@@ -3,8 +3,8 @@ import { Layers, Sparkles, Workflow, Languages } from "@lucide/astro"
 import aboutImg from "../assets/about.svg";
 ---
 
-<section class="about-wrapper flex justify-center px-4 py-8 sm:px-8 " id="about">
-		<div class="about-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)">
+<section class="about-wrapper flex justify-center px-4 py-8 sm:px-8 " id="about" data-animate="section">
+		<div class="about-panel relative isolate flex w-full max-w-6xl flex-col overflow-hidden rounded-[36px] bg-(--surface-base) text-(--ink-body) shadow-(--shadow-elevated)" data-animate-target>
 		<div class="about-pattern" aria-hidden="true"></div>
 		<div class="about-highlight" aria-hidden="true"></div>
 
@@ -31,7 +31,7 @@ import aboutImg from "../assets/about.svg";
 				</div>
 
 				<ul class="about-highlights grid gap-4 pt-2 sm:grid-cols-2">
-					<li class="about-highlight-card">
+					<li class="about-highlight-card" data-animate-child>
 						<span class="icon-badge">
 							<Layers class="icon" />
 						</span>
@@ -40,7 +40,7 @@ import aboutImg from "../assets/about.svg";
 							<p>要件定義からリリース後の改善まで対応し、継続的な価値提供を実現します。</p>
 						</div>
 					</li>
-					<li class="about-highlight-card">
+					<li class="about-highlight-card" data-animate-child>
 						<span class="icon-badge">
 							<Sparkles class="icon" />
 						</span>
@@ -49,7 +49,7 @@ import aboutImg from "../assets/about.svg";
 							<p>デザインシステムとブランドトークンを活用し、長期的に成長できるプロダクトを構築します。</p>
 						</div>
 					</li>
-					<li class="about-highlight-card">
+					<li class="about-highlight-card" data-animate-child>
 						<span class="icon-badge">
 							<Workflow class="icon" />
 						</span>
@@ -58,7 +58,7 @@ import aboutImg from "../assets/about.svg";
 							<p>プロトタイプ検証を重ね、直感的に使えるインターフェースを追求します。</p>
 						</div>
 					</li>
-					<li class="about-highlight-card">
+					<li class="about-highlight-card" data-animate-child>
 						<span class="icon-badge">
 							<Languages class="icon" />
 						</span>
