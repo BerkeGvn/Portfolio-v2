@@ -26,18 +26,6 @@ import aboutImg from '../assets/about.svg';
     <div
       class="about-grid grid gap-10 p-8 sm:gap-12 sm:p-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14 xl:p-16"
     >
-      <div class="about-media about-media--mobile-first">
-        <div class="about-media-frame">
-          <div
-            class="media-placeholder"
-            style={`background-image: url('${aboutImg.src}');`}
-            aria-hidden="true"
-          >
-            <span>イラスト/画像</span>
-          </div>
-        </div>
-      </div>
-
       <div class="about-content space-y-6 lg:space-y-7">
         <span
           class="inline-flex w-fit items-center gap-2 rounded-full border border-(--brand-primary-outline) bg-(--brand-primary-soft) px-4 py-1.5 text-sm font-semibold tracking-wide text-(--brand-primary-dark)"
@@ -118,6 +106,18 @@ import aboutImg from '../assets/about.svg';
             </div>
           </li>
         </ul>
+      </div>
+
+      <div class="about-media about-media--mobile-first">
+        <div class="about-media-frame">
+          <div
+            class="media-placeholder"
+            style={`background-image: url('${aboutImg.src}');`}
+            aria-hidden="true"
+          >
+            <span>イラスト/画像</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
